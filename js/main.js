@@ -1,33 +1,38 @@
-var puzzleWord = "ANIMAL";
-
-// var puzzleWordInArray = ['A','N','I','M','A','L'];
-// var newArray = []
-//
-// for (i = 0 ; i < puzzleWordInArray.length ; i++ ) {
-//
-//   if puzzleWordInArray[i] !=== ('A' || 'E' || 'I' || 'O' || 'U') {
-//
-//     console.log("running puzzle if");
-//       }
-//       console.log("running");
-//     }
-
-var puzzleHide = puzzleWord.replace(/[aeiou]/ig,'-');
-
-document.getElementById("wordId").innerHTML = puzzleHide;
 
 
-var vowels = ["a","e","i","o","u"];
 
-$(document).ready(function() {
+// create function to reverse the string
+function reverseString(userInput) {
+  var newString = "";
+  for (i = userInput.length - 1 ; i >= 0 ; i--) {
+    newString += userInput[i];
+  }
+  return newString;
+}
 
+
+$(document).ready(function(){
+
+  // create function to reverse the string
+  function reverseString(userInput) {
+    var newString = "";
+    for (i = userInput.length - 1 ; i >= 0 ; i--) {
+      newString += userInput[i];
+    }
+    return newString;
+  }
+
+    // on click will get input string, create a new var and
+    //run the reverseString function on userInput
   $("#submit").click(function() {
 
-    if ($("#userInput").val() === puzzleWord) {
-
-      alert("CORRECT!")
+    var userInput = document.getElementById("input").value;
+    var checker = reverseString(userInput);
+    if (userInput === checker) {
+      alert("TRUE");
+    } else {
+      alert("FALSE");
 
     }
   });
-
 });
